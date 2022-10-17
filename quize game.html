@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>whats your favorite food</p>
+
+<button class="wrong-answer">Pizza</button>
+<button id="correct-answer">Ingra</button>
+<button class="wrong-answer">Burger</button>
+ <p id="result"></p>
+
+<script>
+
+    let correctAnswerButton=document.querySelector('#correct-answer')
+
+    let defaultButtonColor = correctAnswerButton.style.accentColor
+
+    console.log(correctAnswerButton)
+
+    let  result=document.querySelector('#result')
+
+    let wrongAnswerButtons = document.querySelectorAll('.wrong-answer')
+    console.log(wrongAnswerButtons)
+
+    //wrongAnswerButtons.forEach(function(wrongAnswerButton){ // loop
+      //  wrongAnswerButton.addEventListener('click', function (){
+       //  result.innerHTML= 'wrong answer , try again'
+          //  correctAnswerButton.style.background = defaultButtonColor
+        //})
+
+        // })
+
+    for(let x=0 ; x< wrongAnswerButtons.length; x++){
+        let wrongAnswerButton = wrongAnswerButtons
+
+        wrongAnswerButtons.forEach(function(wrongAnswerButton){ // loop
+          wrongAnswerButton.addEventListener('click', function (){
+          result.innerHTML= 'wrong answer , try again'
+          correctAnswerButton.style.background = defaultButtonColor
+        })
+        })
+
+    }
+
+
+
+    correctAnswerButton.addEventListener('click',function (){
+        result.innerHTML='correct answer'
+        correctAnswerButton.style.background ='cyan'
+    })
+
+
+
+</script>
+
+</body>
+</html>

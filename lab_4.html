@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Club Membership</title>
+
+    <style>
+
+        .selected {
+            text-decoration: line-through ;
+            font-style: italic;
+            color: gray;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 5px 5px 0px;
+            box-sizing: border-box;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<h1>Student Club Roster</h1>
+
+<h2>Add Students</h2>
+
+<label for="student-name">Student Name</label><input id="student-name" name="student-name">
+<br>
+<label for="student-id">Student ID</label><input id="student-id" name="student-id">
+<br>
+<label for="student-gpa">Student GPA</label><input id="student-gpa" name="student-gpa" type="number">
+<br>
+<button id="add-student">Add Student</button>
+
+<h2>Student List</h2>
+
+<p>There are
+  <span id="student-count">
+          <!-- use JavaScript to count the number of students, and show here -->
+        </span>
+  student(s) in the club.</p>
+
+
+<ul id="student-list">
+  <!-- use JavaScript to create li elements  -->
+</ul>
+
+<button id="remove-selected-students">Remove selected students</button>
+
+<script>
+    let student =document.querySelector('#student-name')
+    let studentId =document.querySelector("#student-id")
+    let Gpa =document.querySelector('#student-gpa')
+    let addButton =document.querySelector('#add-student')
+    let studentCount =document.querySelector('#student-count')
+    let studentList= document.querySelector('#student-list')
+    let removeButton= document.querySelector('#remove-selected-students')
+    let elamentInList= 0
+    studentCount.innerHTML = 0
+
+
+    addButton.addEventListener('click', function (){
+        newstudent = student.value
+        newstudentid = studentId.value
+        newGpa= Gpa.value
+
+        if(newstudent.length==0){
+            alert("enter text")
+            return
+        }
+        if(newstudentid.length==0){
+            alert("enter text")
+            return
+        }
+        if(newGpa <=0 || newGpa >4){
+            alert("Please enter you gpa ")
+            return
+
+        }
+
+        let studentInfromation = (`${newstudent},${newstudentid},${newGpa}`)
+        let newlistItem = document.createElement('li')
+
+
+        newlistItem.addEventListener('click',function (){
+            newlistItem.classList.toggle("selcted");
+        })
+
+        newlistItem.innerHTML=studentInfromation
+        studentList.appendChild(newlistItem)
+
+
+        student.value = ""
+        studentId.value = ""
+        Gpa.value = ""
+
+        elamentInList++
+
+        studentCount.innerHTML= elamentInList
+
+    })
+    removeButton.addEventListener('click', function (){
+        let removie = document.querySelectorAll('.selected')
+        removie.forEach( function (deltedstudent){
+        deltedstudent.remove()
+    })
+
+
+        elamentInList= (elamentInList - removie .length)
+        studentCount.innerHTML= elamentInList
+
+    })
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

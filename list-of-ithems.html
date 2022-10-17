@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h1>Generate a list with JavaScript!</h1>
+<!-- text input -->
+
+<input id="text-input" type="text">
+
+<br>
+
+<button id="add-text-button">Add the text to the list</button>
+
+<ul id="list-of-text-entries">
+
+</ul>
+
+<button id="clear-list-button">Clear the list</button>
+
+<script>
+
+  let textInputElement = document.querySelector('#text-input')
+  // console.log(textInputElement)
+  let addNewTextButton = document.querySelector('#add-text-button')
+  // console.log(addNewTextButton)
+  let textUnorderedList = document.querySelector('#list-of-text-entries')
+  let clearListButton = document.querySelector('#clear-list-button')
+
+  addNewTextButton.addEventListener('click', function() {
+
+
+    let newText = textInputElement.value
+    console.log(newText)
+
+
+    let newListItemElement = document.createElement('li')
+
+
+    newListItemElement.innerHTML = newText
+    textUnorderedList.appendChild(newListItemElement)
+    textInputElement.value = ''
+
+
+    numberOflistItems.value= ""
+    console.log(numberOflistItems)
+
+
+
+
+  })
+
+  clearListButton.addEventListener('click', function() {
+    console.log('clear list!')
+    textUnorderedList.innerHTML = ''
+
+  })
+
+
+
+
+
+</script>
+
+</body>
+</html>

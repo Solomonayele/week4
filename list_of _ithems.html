@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="text-input" type="text">
+<button id="add-text- buttons"> Add the text of the list </button>
+
+
+<ul id="list-of text-enteries"> </ul>
+
+<button id="clear-list-Button"></button>
+
+<script>
+  let textInputElement = document.querySelector('#text-input')
+  //console.log(textInputElements)
+  let  addNewTextButtons = document.querySelector('#add-text- buttons')
+  //console.log(addNewTextButtons)
+  let textUnorderedList = document.querySelector('#list-of text-enteries')
+
+  //console.log(textUnorderedList)
+  let clearListButton = document.querySelector('#clear-list-Button')
+
+
+
+  addNewTextButtons.addEventListener('click', function () {
+
+     //  alert('button clicked!')
+
+      let newText = textInputElement.value
+      console.log(newText)
+
+      let newListItemElement = document.createElement("li")
+
+      textUnorderedList.appendChild(newListItemElement)
+      textUnorderedList.innerHTML = newText
+
+
+  })
+
+  clearListButton.addEventListener('click', function (){
+      console.log('clear list!')
+      textUnorderedList.innerHTML = ''
+  })
+
+
+
+</script>
+
+</body>
+</html>

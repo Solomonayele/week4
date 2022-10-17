@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Enter your ID ?</p>
+<input type="text" id="nam">
+<button id="save_id">save</button>
+<p id="welcome-messages"></p>
+<script>
+    let saveButtons = document.querySelector('#save_id')
+    let nameInput = document.querySelector('#name')
+    let welcomeMessage = document.querySelector('#welcome-messages')
+
+    saveButtons.addEventListener('click', function (){
+        let nam = nameInput.value
+
+        if (nam.length <2){
+            welcomeMessage.innerHTML= 'please enter at least 2 leatters, '
+        }else {
+            welcomeMessage.innerHTML = `Here is your Id, ${nam} `
+        }
+    })
+</script>
+
+
+
+
+</body>
+</html>
